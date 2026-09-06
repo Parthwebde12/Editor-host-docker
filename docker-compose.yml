@@ -1,0 +1,11 @@
+services:
+  editor:
+    build:
+      context: .
+      dockerfile: dockerfile
+      args:
+        VITE_SOCKET_URL: ${VITE_SOCKET_URL:-http://localhost:3000}
+    image: codesync-editor:local
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
